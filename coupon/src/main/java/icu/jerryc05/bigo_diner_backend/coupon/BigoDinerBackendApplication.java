@@ -1,4 +1,4 @@
-package icu.jerryc05.bigo_diner_backend;
+package icu.jerryc05.bigo_diner_backend.coupon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
