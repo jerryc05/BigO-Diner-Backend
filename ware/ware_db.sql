@@ -22,8 +22,8 @@ CREATE TABLE wms_purchase (
   assignee_id bigint COMMENT '采购人id',
   assignee_name varchar(255) COMMENT '采购人名',
   phone char(13) COMMENT '联系方式',
-  priority int(4) COMMENT '优先级',
-  STATUS int(4) COMMENT '状态',
+  `priority` int(4) COMMENT '优先级',
+  `status` int(4) COMMENT '状态',
   ware_id bigint COMMENT '仓库id',
   amount decimal(18, 4) COMMENT '总金额',
   create_time datetime COMMENT '创建日期',
@@ -43,7 +43,7 @@ CREATE TABLE wms_purchase_detail (
   sku_num int COMMENT '采购数量',
   sku_price decimal(18, 4) COMMENT '采购金额',
   ware_id bigint COMMENT '仓库id',
-  STATUS int COMMENT '状态[0新建，1已分配，2正在采购，3已完成，4采购失败]',
+  `status` int COMMENT '状态[0新建，1已分配，2正在采购，3已完成，4采购失败]',
   PRIMARY KEY (id)
 );
 
@@ -52,8 +52,8 @@ CREATE TABLE wms_purchase_detail (
 /*==============================================================*/
 CREATE TABLE wms_ware_info (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(255) COMMENT '仓库名',
-  address varchar(255) COMMENT '仓库地址',
+  `name` varchar(255) COMMENT '仓库名',
+  `address` varchar(255) COMMENT '仓库地址',
   areacode varchar(20) COMMENT '区域编码',
   PRIMARY KEY (id)
 );

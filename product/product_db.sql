@@ -39,11 +39,11 @@ CREATE TABLE pms_attr (
   attr_id bigint NOT NULL AUTO_INCREMENT COMMENT '属性id',
   attr_name char(30) COMMENT '属性名',
   search_type tinyint COMMENT '是否需要检索[0-不需要，1-需要]',
-  `value_type` tinyint(4) DEFAULT NULL COMMENT '值类型[0-为单个值，1-可以选择多个值]',
-  `icon` varchar(255) DEFAULT NULL COMMENT '属性图标',
-  `value_select` char(255) DEFAULT NULL COMMENT '可选值列表[用逗号分隔]',
-  `attr_type` tinyint(4) DEFAULT NULL COMMENT '属性类型[0-销售属性，1-基本属性，2-既是销售属性又是基本属性]',
-  enable bigint COMMENT '启用状态[0 - 禁用，1 - 启用]',
+  value_type tinyint(4) DEFAULT NULL COMMENT '值类型[0-为单个值，1-可以选择多个值]',
+  icon varchar(255) DEFAULT NULL COMMENT '属性图标',
+  value_select char(255) DEFAULT NULL COMMENT '可选值列表[用逗号分隔]',
+  attr_type tinyint(4) DEFAULT NULL COMMENT '属性类型[0-销售属性，1-基本属性，2-既是销售属性又是基本属性]',
+  `enable` bigint COMMENT '启用状态[0 - 禁用，1 - 启用]',
   catelog_id bigint COMMENT '所属分类',
   show_desc tinyint COMMENT '快速展示【是否展示在介绍上；0-否 1-是】，在sku中仍然可以调整',
   PRIMARY KEY (attr_id)
@@ -84,7 +84,7 @@ ALTER TABLE pms_attr_group COMMENT '属性分组';
 /*==============================================================*/
 CREATE TABLE pms_brand (
   brand_id bigint NOT NULL AUTO_INCREMENT COMMENT '品牌id',
-  name char(50) COMMENT '品牌名',
+  `name` char(50) COMMENT '品牌名',
   logo varchar(2000) COMMENT '品牌logo地址',
   descript longtext COMMENT '介绍',
   show_status tinyint COMMENT '显示状态[0-不显示；1-显示]',
@@ -100,7 +100,7 @@ ALTER TABLE pms_brand COMMENT '品牌';
 /*==============================================================*/
 CREATE TABLE pms_category (
   cat_id bigint NOT NULL AUTO_INCREMENT COMMENT '分类id',
-  name char(50) COMMENT '分类名称',
+  `name` char(50) COMMENT '分类名称',
   parent_cid bigint COMMENT '父分类id',
   cat_level int COMMENT '层级',
   show_status tinyint COMMENT '是否显示[0-不显示，1显示]',
@@ -253,7 +253,7 @@ CREATE TABLE pms_spu_info (
   spu_description varchar(1000) COMMENT '商品描述',
   catalog_id bigint COMMENT '所属分类id',
   brand_id bigint COMMENT '品牌id',
-  weight decimal(18, 4),
+  `weight` decimal(18, 4),
   publish_status tinyint COMMENT '上架状态[0 - 下架，1 - 上架]',
   create_time datetime,
   update_time datetime,

@@ -57,7 +57,7 @@ CREATE TABLE ums_member (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   level_id bigint COMMENT '会员等级id',
   username char(64) COMMENT '用户名',
-  PASSWORD varchar(64) COMMENT '密码',
+  `password` varchar(64) COMMENT '密码',
   nickname varchar(64) COMMENT '昵称',
   mobile varchar(20) COMMENT '手机号码',
   email varchar(64) COMMENT '邮箱',
@@ -70,7 +70,7 @@ CREATE TABLE ums_member (
   source_type tinyint COMMENT '用户来源',
   integration int COMMENT '积分',
   growth int COMMENT '成长值',
-  STATUS tinyint COMMENT '启用状态',
+  `status` tinyint COMMENT '启用状态',
   create_time datetime COMMENT '注册时间',
   PRIMARY KEY (id)
 );
@@ -111,7 +111,7 @@ ALTER TABLE ums_member_collect_subject COMMENT '会员收藏的专题活动';
 /*==============================================================*/
 CREATE TABLE ums_member_level (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(100) COMMENT '等级名称',
+  `name` varchar(100) COMMENT '等级名称',
   growth_point int COMMENT '等级需要的成长值',
   default_status tinyint COMMENT '是否为默认等级[0->不是；1->是]',
   free_freight_point decimal(18, 4) COMMENT '免运费标准',
@@ -134,7 +134,7 @@ CREATE TABLE ums_member_login_log (
   create_time datetime COMMENT '创建时间',
   ip varchar(64) COMMENT 'ip',
   city varchar(64) COMMENT 'city',
-  login_type tinyint(1) COMMENT '登录类型[1-web，2-app]',
+  `login_type` tinyint(1) COMMENT '登录类型[1-web，2-app]',
   PRIMARY KEY (id)
 );
 
@@ -146,7 +146,7 @@ ALTER TABLE ums_member_login_log COMMENT '会员登录记录';
 CREATE TABLE ums_member_receive_address (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   member_id bigint COMMENT 'member_id',
-  name varchar(255) COMMENT '收货人姓名',
+  `name` varchar(255) COMMENT '收货人姓名',
   phone varchar(64) COMMENT '电话',
   post_code varchar(64) COMMENT '邮政编码',
   province varchar(100) COMMENT '省份/直辖市',

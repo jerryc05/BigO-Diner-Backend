@@ -111,13 +111,13 @@ ALTER TABLE cms_coupon_spu_relation COMMENT '优惠券与产品关联';
 /*==============================================================*/
 CREATE TABLE cms_home_adv (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(100) COMMENT '名字',
+  `name` varchar(100) COMMENT '名字',
   pic varchar(500) COMMENT '图片地址',
   start_time datetime COMMENT '开始时间',
   end_time datetime COMMENT '结束时间',
-  STATUS tinyint(1) COMMENT '状态',
+  `status` tinyint(1) COMMENT '状态',
   click_count int COMMENT '点击数',
-  url varchar(500) COMMENT '广告详情连接地址',
+  `url` varchar(500) COMMENT '广告详情连接地址',
   note varchar(500) COMMENT '备注',
   sort int COMMENT '排序',
   publisher_id bigint COMMENT '发布者',
@@ -132,11 +132,11 @@ ALTER TABLE cms_home_adv COMMENT '首页轮播广告';
 /*==============================================================*/
 CREATE TABLE cms_home_subject (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(200) COMMENT '专题名字',
+  `name` varchar(200) COMMENT '专题名字',
   title varchar(255) COMMENT '专题标题',
   sub_title varchar(255) COMMENT '专题副标题',
-  STATUS tinyint(1) COMMENT '显示状态',
-  url varchar(500) COMMENT '详情连接',
+  `status` tinyint(1) COMMENT '显示状态',
+  `url` varchar(500) COMMENT '详情连接',
   sort int COMMENT '排序',
   img varchar(500) COMMENT '专题图片地址',
   PRIMARY KEY (id)
@@ -149,7 +149,7 @@ ALTER TABLE cms_home_subject COMMENT '首页专题表【jd首页下面很多专�
 /*==============================================================*/
 CREATE TABLE cms_home_subject_spu (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(200) COMMENT '专题名字',
+  `name` varchar(200) COMMENT '专题名字',
   subject_id bigint COMMENT '专题id',
   spu_id bigint COMMENT 'spu_id',
   sort int COMMENT '排序',
@@ -181,7 +181,7 @@ CREATE TABLE cms_seckill_promotion (
   title varchar(255) COMMENT '活动标题',
   start_time datetime COMMENT '开始日期',
   end_time datetime COMMENT '结束日期',
-  STATUS tinyint COMMENT '上下线状态',
+  `status` tinyint COMMENT '上下线状态',
   create_time datetime COMMENT '创建时间',
   user_id bigint COMMENT '创建人',
   PRIMARY KEY (id)
@@ -194,10 +194,10 @@ ALTER TABLE cms_seckill_promotion COMMENT '秒杀活动';
 /*==============================================================*/
 CREATE TABLE cms_seckill_session (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(200) COMMENT '场次名称',
+  `name` varchar(200) COMMENT '场次名称',
   start_time datetime COMMENT '每日开始时间',
   end_time datetime COMMENT '每日结束时间',
-  STATUS tinyint(1) COMMENT '启用状态',
+  `status` tinyint(1) COMMENT '启用状态',
   create_time datetime COMMENT '创建时间',
   PRIMARY KEY (id)
 );
@@ -211,7 +211,7 @@ CREATE TABLE cms_seckill_sku_notice (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   member_id bigint COMMENT 'member_id',
   sku_id bigint COMMENT 'sku_id',
-  session_id bigint COMMENT '活动场次id',
+  `session_id` bigint COMMENT '活动场次id',
   subcribe_time datetime COMMENT '订阅时间',
   send_time datetime COMMENT '发送时间',
   notice_type tinyint(1) COMMENT '通知方式[0-短信，1-邮件]',

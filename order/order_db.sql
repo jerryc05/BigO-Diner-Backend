@@ -37,7 +37,7 @@ CREATE TABLE oms_order (
   discount_amount decimal(18, 4) COMMENT '后台调整订单使用的折扣金额',
   pay_type tinyint COMMENT '支付方式【1->支付宝；2->微信；3->银联； 4->货到付款；】',
   source_type tinyint COMMENT '订单来源[0->PC订单；1->app订单]',
-  STATUS tinyint COMMENT '订单状态【0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单】',
+  `status` tinyint COMMENT '订单状态【0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单】',
   delivery_company varchar(64) COMMENT '物流公司(配送方式)',
   delivery_sn varchar(64) COMMENT '物流单号',
   auto_confirm_day int COMMENT '自动确认时间（天）',
@@ -126,7 +126,7 @@ CREATE TABLE oms_order_return_apply (
   return_amount decimal(18, 4) COMMENT '退款金额',
   return_name varchar(100) COMMENT '退货人姓名',
   return_phone varchar(20) COMMENT '退货人电话',
-  STATUS tinyint(1) COMMENT '申请状态[0->待处理；1->退货中；2->已完成；3->已拒绝]',
+  `status` tinyint(1) COMMENT '申请状态[0->待处理；1->退货中；2->已完成；3->已拒绝]',
   handle_time datetime COMMENT '处理时间',
   sku_img varchar(500) COMMENT '商品图片',
   sku_name varchar(200) COMMENT '商品名称',
@@ -155,9 +155,9 @@ ALTER TABLE oms_order_return_apply COMMENT '订单退货申请';
 /*==============================================================*/
 CREATE TABLE oms_order_return_reason (
   id bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  name varchar(200) COMMENT '退货原因名',
+  `name` varchar(200) COMMENT '退货原因名',
   sort int COMMENT '排序',
-  STATUS tinyint(1) COMMENT '启用状态',
+  `status` tinyint(1) COMMENT '启用状态',
   create_time datetime COMMENT 'create_time',
   PRIMARY KEY (id)
 );
@@ -189,7 +189,7 @@ CREATE TABLE oms_payment_info (
   order_id bigint COMMENT '订单id',
   alipay_trade_no varchar(50) COMMENT '支付宝交易流水号',
   total_amount decimal(18, 4) COMMENT '支付总金额',
-  subject varchar(200) COMMENT '交易内容',
+  `subject` varchar(200) COMMENT '交易内容',
   payment_status varchar(20) COMMENT '支付状态',
   create_time datetime COMMENT '创建时间',
   confirm_time datetime COMMENT '确认时间',
